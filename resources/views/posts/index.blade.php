@@ -8,14 +8,18 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <a href='/posts/create'>create</a>
         <div class='posts'>
+            <!--foreachで配列の繰り返し処理-->
+            <!--$postsを出す-->
             @foreach ($posts as $post)
                 <div class='post'>
-                    <h2 class='title'>{{ $post->title }}</h2>
+                   <h2 class='title'><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
                     <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
         </div>
+        <!--ペジネーションの入力-->
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
