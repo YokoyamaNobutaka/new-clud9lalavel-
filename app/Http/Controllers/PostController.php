@@ -60,5 +60,10 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
         /*今回保存したpostのIDを含んだURLにリダイレクト*/
     }
+    public function delete(Post $post)
+    {
+    $post->delete();
+    return redirect('/');
+    }
 }
 ?>
