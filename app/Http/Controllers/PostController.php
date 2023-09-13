@@ -46,6 +46,19 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
         /*今回保存したpostのIDを含んだURLにリダイレクト*/
     }
-    
+     public function edit(post $post)
+    {
+        return view('posts.edit')->with(['post'=> $post]);
+    }
+    public function update(PostRequest $request, Post $post)
+       /*PostRequestを変数$requestPost postモデルを変数$post */
+    {
+        $input_post = $request['post'];
+        /*viwのcreate.blade.phpのpost[~]のみ取得して格納*/
+        $post->fill($input_post)->save();
+       /*フレームワーク内部でMySQLへのINSERT文が実行され、DBへデータが追加されます。fill save で差分があった場合は保存*/
+        return redirect('/posts/' . $post->id);
+        /*今回保存したpostのIDを含んだURLにリダイレクト*/
+    }
 }
 ?>

@@ -17,6 +17,10 @@
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
+        <div class="edit">
+            <a href="/posts/{{ $post->id }}/edit">edit</a>
+            <!--各IDの編集画面に進むためのところ -->
+        </div>
         <div class="footer">
             <a href="/">戻る</a>
             <!-- 一覧画面に戻る -->
