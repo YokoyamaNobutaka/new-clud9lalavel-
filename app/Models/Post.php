@@ -4,10 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
+/*use Illuminate\Database\Eloquent\SoftDeletes;とuse SoftDeletes;入力後
+　発行されるSQLがUPDATE文になり、deleted_atに実行日時が設定される。
+　論理削除が有効になっているモデルでは、deleted_atに値が設定されると以降は削除扱いとなり、検索等で引っかからないようになる。*/
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    /*use Illuminate\Database\Eloquent\SoftDeletes;とuse SoftDeletes;入力後
+　　　発行されるSQLがUPDATE文になり、deleted_atに実行日時が設定される。
+　　　論理削除が有効になっているモデルでは、deleted_atに値が設定されると以降は削除扱いとなり、検索等で引っかからないようになる。*/
     
     protected $fillable = [
     'title',

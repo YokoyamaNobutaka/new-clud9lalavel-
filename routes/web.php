@@ -37,3 +37,6 @@ getリクエストが来たら、PostControllerのeditメソッドを実行す�
 Route::put('/posts/{post}', [PostController::class, 'update']);
 /*ブラウザ上で'/posts/{post}'にputリクエストが来たら、
 　PostControllerのupdateメソッドを実行する*/
+Route::delete('/posts/{post}', [PostController::class,'delete']);
+/*ブラウザ上で'/posts/{post}'にdeleteリクエストが来たら、
+　PostControllerのdeleteメソッドを実行する*/
