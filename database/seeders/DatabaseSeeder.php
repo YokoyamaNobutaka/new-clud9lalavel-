@@ -14,8 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(PostSeeder::class);
+        //PostSeederクラスをDatabaseSeeder.phpファイルで呼び出し
+        
         // \App\Models\User::factory(10)->create();
-
+        
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
